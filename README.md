@@ -82,7 +82,7 @@ We used mobile,web,cloud and server side technologies for the rapid development 
 
  
 
-1.            Our solution is accessible @ http://imatter.azurewebsites.net/.<br/>
+1.            Our solution is accessible @ http://imatter.azurewebsites.net/
 
    We have provided a role based access control for the parent, student,teacher and the admin.The below credentials can be used to try    out our solution<br/>
 
@@ -90,19 +90,19 @@ Password to be used across all roles-  (password - Password@123). <br/>
 
 The corresponding user ids are as below<br/>
 
-  i.           Teacher - ID-(physics.teacher1@gmail.com) <br/>
+  i.Teacher - ID-(physics.teacher1@gmail.com) <br/>
 
   ii. Student- ID-(student.one@gmail.com)<br/>
 
   iii.Parent-ID -(parent.one@gmail.com)<br/>
 
-  iv.         Admin-ID- (admin.one@gmail.com)<br/>
+  iv.Admin-ID- (admin.one@gmail.com)<br/>
 
  
 
-Basic windows authentication with individual user authentication is used. <br/>
+Basic windows authentication with individual user authentication is used. 
 
-2.            We have provided the following features for the teacher role- <br/>
+2.  We have provided the following features for the teacher role- <br/>
 
      a.       Create tutorial, upload video content, PDFs<br/>
 
@@ -114,7 +114,7 @@ Basic windows authentication with individual user authentication is used. <br/>
 
      e.      Access useful links, give back to society via the social responsibility links provided, Create AR/VR Content  for virtual labs   etc. <br/>
 
-Technolgy and Services Used are IBM Watson Assistant ,Discovery, NLU, Translation Services from IBM etc<br/>
+Technolgy and Services Used are IBM Watson Assistant ,Discovery, NLU, Translation Services from IBM etc
 
  
 
@@ -210,32 +210,22 @@ IBM Language Translation<br/>
 
 Web Application -Refer -<EduCarePortal><br/>
 
- 
-
 Mobile Application -Refer -<Mobile App.zip><br/>
 
 Limiting Crowd Solution -Refer -<No_Of_People_Counting.zip><br/>
 
- 
-
 Face Mask Detection -Refer -<FaceMaskDetection.zip><br/>
-
- 
 
 Social Distancing Solution -Refer-<SocialDistancing.zip><br/>
 
-Overall Solution Video -Refer-<><br/>
+Overall Solution Video -Refer-<IBM HACK V2.mp4><br/>
 
- 
+Additional Videos Showcasing Application Demo -Refer-<additionalvideo.zip><br/>
 
-Additional Videos Showcasing Application Demo -Refer-<><br/>
-
- 
 
 <h2>Challenges Faced during Mobile Application Development:</h2>
 
  
-
 We have tried to use the IBM Cloud Platform and associated services in our solution to maximum.
 
 The documentation and the enablement sessions provided helped us to shorten the learning curve.
@@ -244,11 +234,8 @@ Though the team had very less expertise in mobile application development, we we
 
 We followed the same approach in the Web Application development also & have tried to incorporate maximum IBM provided cloud services.
 
- 
 
 <h2>The Solution Road Map</h2>
-
- 
 
 For the web application we would like to bring in additional features like live streaming with thermal camera for temperature detection.We would like to host the computer vision module and other application modules in the IBM cloud. Our objective is to build a complete platform which will fulfull our vision to ensure education,health,food and women empowerment.
 
