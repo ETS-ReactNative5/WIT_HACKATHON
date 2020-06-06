@@ -1,0 +1,24 @@
+Watson Assistant Link:-
+
+ https://web-chat.global.assistant.watson.cloud.ibm.com/preview.html?region=eu-gb&integrationID=d3a65210-7a1c-43f1-afc6-71a33804cf0f&serviceInstanceID=5ad91973-9945-408b-9414-8da17b23cffe
+
+Script:-
+
+<script>
+  window.watsonAssistantChatOptions = {
+      integrationID: "a5421ef7-3644-4017-8c31-0755398ece16", // The ID of this integration.
+      region: "eu-gb", // The region your integration is hosted in.
+      serviceInstanceID: "5ad91973-9945-408b-9414-8da17b23cffe", // The ID of your service instance.
+      onLoad: function(instance) { instance.render(); }
+    };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+    document.head.appendChild(t);
+  });
+</script>
+
+
+Url:- https://api.eu-gb.assistant.watson.cloud.ibm.com/instances/5ad91973-9945-408b-9414-8da17b23cffe/v1/workspaces/a6e7b407-0887-4afe-aff7-67db687bd7ec/message
+
+Key:- V0XuPHdovwHjrb15GZzrPknkEl16dyvDA_NkXXVbHfao
