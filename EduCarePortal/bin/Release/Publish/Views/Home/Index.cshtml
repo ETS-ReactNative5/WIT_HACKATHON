@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Current = "Home";
+}
+<link href="~/Content/css/LoginStyle.css" rel="stylesheet">
+@*<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-black">
+    <div class="container-fluid">
+        <div class="navbar-brand">
+            <img src="~/Content/Images/deloitte.png" width="150" srcset="~/Content/Images/deloitte.png 500w, ~/Content/Images/deloitte.png 976w" sizes="(max-width: 479px) 100vw, 196px" alt="" />
+        </div>
+
+    </div>
+</nav>*@
+<div class="container-fluid login-bg login">
+    <div class="container h-100 loginSection center">
+        <div class="row">
+            <div class="col col-sm-5 loginDetails">
+                <img src="https://cdn.dribbble.com/users/2486875/screenshots/5534832/education.gif" width="100%" srcset="" />
+            </div>
+
+            <div class="col col-md-7">
+                <div class="loginContent">
+                    <div class="loginTitle">
+                        Digital Education Platform
+                    </div>
+                    <div class="divider"></div>
+                    <div class="loginDesc mb-50">
+                        <p>
+                            The COVID-19 has resulted in schools shut all across the world. Globally, over 1.2 billion children are out of the classroom.As a result, education has changed dramatically, with the distinctive rise of e-learning, whereby teaching is undertaken remotely and on digital platforms.Research suggests that online learning has been shown to increase retention of information, and take less time, meaning the changes coronavirus have caused might be here to stay.
+                        </p>
+                        <p>
+                            While countries are at different points in their COVID-19 infection rates, worldwide there are currently more than 1.2 billion children in 186 countries affected by school closures due to the pandemic. In Denmark, children up to the age of 11 are returning to nurseries and schools after initially closing on 12 March, but in South Korea students are responding to roll calls from their teachers online.
+                        </p>
+                    </div>
+                    <div>
+                        @Html.ActionLink("Login", "Login", "Account", new { area = "" }, new { @class = "btn btn-primary btn-large", @style = "width: 100px;" })
+                        @Html.ActionLink("Register", "Register", "Account", new { area = "" }, new { @class = "btn btn-primary btn-large", @style = "width: 100px;" })
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

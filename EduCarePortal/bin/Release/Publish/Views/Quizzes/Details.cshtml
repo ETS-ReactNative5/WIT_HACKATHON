@@ -1,0 +1,42 @@
+﻿@model EduCarePortal.Models.Quizze
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Quizze</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.QuizName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuizName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuizDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuizDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject.SubjectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject.SubjectName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.QuizID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

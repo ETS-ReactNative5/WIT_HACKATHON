@@ -1,0 +1,75 @@
+﻿@model EduCarePortal.Models.TutorialViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+<p>
+    <div class="column w-col w-col-8 text-right">
+        <a href="/Lessons/Index" class="createentrybutton"><img src="~/Content/Images/goBack-icon.png" style="height: 30px; width: 35px; padding-right:5px" />Back to Tutorial List</a>
+    </div>
+</p>
+<h2>@Model.Subject.SubjectName Lesson</h2>
+<h4>Issued On - @Model.IssueDate.ToShortDateString()</h4>
+<hr />
+<hr />
+@*<div class="row" style="padding-left:12px">
+    <h4>@Model.LessonName</h4>
+    <hr />
+    <hr />
+</div>*@
+<div class="col-lg-12">
+    <h3>
+        @Model.LessonName Video Tutorials
+    </h3>
+</div>
+<hr />
+@foreach (var item in Model.Files)
+{
+    if (item.FileType == "Video")
+    {
+        <div class="row" style="max-height:40vh">
+            <div class="col-md-4" style="display:flex;width:100%;">
+                <iframe src="@item.ContentURL" style="min-height:350px;width:-webkit-fill-available;"></iframe>
+            </div>
+            <div class="col-md-8" style="padding-left:40px">
+                <p style="text-align: justify;">
+                    @item.FileName
+                </p>
+                <p style="text-align: justify;">
+                    @item.ContentDetails
+                </p>
+            </div>
+        </div>
+        <hr />
+    }
+}
+
+<hr />
+<div class="col-lg-12">
+    <h3>
+        @Model.LessonName Document Tutorials
+    </h3>
+</div>
+<hr />
+@foreach (var item in Model.Files)
+{
+    if (item.FileType == "PDF")
+    {
+        <div class="col-md-4" onclick="DownloadDoc('@item.ContentURL')">
+            <div class="card border-primary mb-3" style="max-width: 25rem;background-color: #4a6121;border-color: #86bc25 !important;color: white;">
+                <div class="card-body">
+                    <h4 class="card-title">@item.FileName</h4>
+
+                    <p class="card-text">@item.FileType</p>
+                </div>
+            </div>
+        </div>
+        <hr />
+    }
+}
+
+<script>
+    var DownloadDoc = function (_url) {
+        window.location.href = "/Lessons/RedirectToDoc?url=" + _url;  
+    }
+</script>

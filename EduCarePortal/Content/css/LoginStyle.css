@@ -1,0 +1,18 @@
+﻿#wrapper #content-wrapper {
+    /*background: url(../../Content/Images/shutterstock_503246311.jpg) no-repeat;*/
+    background: url(../../Content/Images/book-with-green-board-background_1150-3837.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+    #wrapper #content-wrapper #content {
+        flex: 1 0 auto;
+        background: #000000a1;
+    }
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1290px;
+    }
+}

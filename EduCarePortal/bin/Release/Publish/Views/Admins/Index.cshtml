@@ -1,0 +1,46 @@
+﻿@model IEnumerable<EduCarePortal.Models.Admin>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Admins</h2>
+<p>
+    <div class="column w-col w-col-8 text-right">
+        <a href="/Admins/Create" class="createentrybutton"><img src="~/Content/Images/create-icon.png" style="height: 30px; width: 30px; padding-right:5px" />Create New Admin</a>
+    </div>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.AdminID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.AdminID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.AdminID })
+            </td>
+        </tr>
+    }
+
+</table>

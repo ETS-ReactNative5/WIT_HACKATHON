@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Education Platform</title>
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Scripts/jquery-3.4.1.min.js")
+    @*@Scripts.Render("~/Scripts/jquery-ui-1.12.1.min.js")*@
+    <link href="~/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/css/googleapisfont.css" rel="stylesheet">
+    <link href="~/Content/css/bootstrap-multiselect.css" rel="stylesheet" type="text/css" />
+    <!-- Custom styles for this template-->
+    <link href="~/Content/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="~/Content/css/style.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        @if (Request.IsAuthenticated)
+        {
+            <!-- Start of Sidebar -->
+            <ul class="nav navbar-nav bg-gradient-primary1 sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+                    <div class="sidebar-brand-icon">
+                        @*<span>
+                                <img src="~/Content/Images/deloitte.png" width="170" srcset="~/Content/Images/deloitte.png 500w, ~/Content/Images/deloitte.png 976w" sizes="(max-width: 479px) 100vw, 196px" alt="" />
+                            </span>*@
+                    </div>
+                </a>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider d-none d-md-block">
+                @if (Session["Role"].ToString() == "Student")
+                {
+                    <li class="nav-item  active1">
+                        <a class="nav-link" href="/Home/Landing">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  active1">
+                        <a class="nav-link" href="/Lessons/Index">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>Tutorials</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  active1">
+                        <a class="nav-link" href="/Quizzes/Index">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>Quizes</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  active1">
+                        <a class="nav-link" href="/QuizResults/Index">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>Reports</span>
+                        </a>
+                    </li>
+                }
+                @if (Session["Role"].ToString() == "Teacher")
+                {
+                    <li class="nav-item  active1">
+                        <a class="nav-link" href="/Home/Landing">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  active1">
+                        <a class="nav-link" href="/Lessons/Index">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>Tutorials</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  active1">
+                        <a class="nav-link" href="/Quizzes/Index">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>Quizes</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  active1">
+                        <a class="nav-link" href="/QuizResults/Index">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>Reports</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  active1">
+                        <a class="nav-link" href="/Home/DashBoard">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>Meet Parents</span>
+                        </a>
+                    </li>
+                }
+                @if (Session["Role"].ToString() == "Parents")
+                {
+                    <li class="nav-item  active1">
+                        <a class="nav-link" href="/Home/Landing">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  active1">
+                        <a class="nav-link" href="/QuizResults/Index">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>Reports</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  active1">
+                        <a class="nav-link" href="/Home/DashBoard">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>Meet Teacher</span>
+                        </a>
+                    </li>
+                }
+                @if (Session["Role"].ToString() == "Admin")
+                {
+                    <li class="nav-item  active1">
+                        <a class="nav-link" href="/Home/Landing">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  active1">
+                        <a class="nav-link" href="/User/Index">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>Registration</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  active1">
+                        <a class="nav-link" href="/Teachers/Index">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>Teachers</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  active1">
+                        <a class="nav-link" href="/Students/Index">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>Students</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  active1">
+                        <a class="nav-link" href="/Parents/Index">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>Parents</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  active1">
+                        <a class="nav-link" href="/Admins/Index">
+                            <i class="fas fa-fw fa-tachometer-alt"></i>
+                            <span>Admins</span>
+                        </a>
+                    </li>
+                }
+                <!-- Divider -->
+                <hr class="sidebar-divider d-none d-md-block">
+
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>
+
+            </ul>
+            <!-- End of Sidebar -->
+        }
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Topbar -->
+                @if (Request.IsAuthenticated)
+                {
+                    <nav class="navbar navbar-expand navbar-light bg-black topbar mb-4 static-top shadow" style="margin-bottom: 0px !important;">
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+
+                        <!-- Topbar Navbar -->
+                        <ul class="navbar-nav ml-auto">
+
+                            <div class="topbar-divider d-none d-sm-block1"></div>
+
+                            <!-- Nav Item - User Information -->
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="mr-2 d-none d-lg-inline th-large" style="font-weight:600; font-size:large">@Session["UserName"].ToString()</span>
+                                    <img class="img-profile rounded-circle" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMCA1MTAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMCA1MTA7IiB4bWw6c3BhY2U9InByZXNlcnZlIiBjbGFzcz0iIj48Zz48Zz4KCTxnIGlkPSJhY2NvdW50LWNpcmNsZSI+CgkJPHBhdGggZD0iTTI1NSwwQzExNC43NSwwLDAsMTE0Ljc1LDAsMjU1czExNC43NSwyNTUsMjU1LDI1NXMyNTUtMTE0Ljc1LDI1NS0yNTVTMzk1LjI1LDAsMjU1LDB6IE0yNTUsNzYuNSAgICBjNDMuMzUsMCw3Ni41LDMzLjE1LDc2LjUsNzYuNXMtMzMuMTUsNzYuNS03Ni41LDc2LjVjLTQzLjM1LDAtNzYuNS0zMy4xNS03Ni41LTc2LjVTMjExLjY1LDc2LjUsMjU1LDc2LjV6IE0yNTUsNDM4LjYgICAgYy02My43NSwwLTExOS44NS0zMy4xNDktMTUzLTgxLjZjMC01MSwxMDItNzkuMDUsMTUzLTc5LjA1UzQwOCwzMDYsNDA4LDM1N0MzNzQuODUsNDA1LjQ1LDMxOC43NSw0MzguNiwyNTUsNDM4LjZ6IiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBjbGFzcz0iYWN0aXZlLXBhdGgiIHN0eWxlPSJmaWxsOiM4NkJDMjUiIGRhdGEtb2xkX2NvbG9yPSIjMDAwMDAwIj48L3BhdGg+Cgk8L2c+CjwvZz48L2c+IDwvc3ZnPg==">
+
+                                </a>
+                                <!-- Dropdown - User Information -->
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Profile
+                                    </a>
+                                    @*<a class="dropdown-item" href="#">
+                                            <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                            Settings
+                                        </a>*@
+                                    @*<a class="dropdown-item" href="#">
+                                            <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                            Activity Log
+                                        </a>*@
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Logout
+                                    </a>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </nav>
+                }
+
+                <!-- End of Topbar -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid" style="height: 92%; padding-top:25px; background-image:url(../../Content/Images/login-banner.jpg)">
+                    <div class="alert" id="inlisted-alert">
+                        <button type="button" class="close" data-dismiss="alert" style="color:#bcb9b9">x</button>
+                        <span id="unlisted-alert-text"></span>
+                    </div>
+                    @RenderBody()
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+            <!-- Footer -->
+            <footer class="sticky-footer bg-black">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; 2020 Digital Education Platform. All rights reserved.</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top" style="right: 8rem;">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    @Html.ActionLink("Logout", "LogOff", "Account", new { area = "" }, new { @class = "btn btn-primary" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/Content/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/vendor/bootstrap/js/bootstrap-multiselect.js" type="text/javascript"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="~/Content/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="~/Content/js/sb-admin-2.min.js"></script>
+    <script src="~/Content/js/jsforviews/layout.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,120 @@
+﻿@model EduCarePortal.Models.ParentsViewModel
+
+@{
+    ViewBag.Title = "Parent Dashboard";
+}
+
+<h2>Hello Parents !</h2>
+
+<hr />
+<div class="col-lg-12">
+    <h3>
+        Usefull Links
+    </h3>
+    <hr />
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <div class="card border-primary mb-3" style="max-width:28rem;background-color: darkgrey;color: white;border-color: #fcff5e !important;background-color: #b7b36e">
+            <div class="card-body">
+                <a href="https://www.indiafoodbanking.org/" target="_blank"><img src="~/Content/Images/middaymeal.jpg" style="width:235px;" /></a>
+                @*<h4 class="card-title">Sample Link</h4>*@
+                <br />
+                <h4 class="card-text" style="text-align: center;">Social Responsibility</h4>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card border-primary mb-3" style="max-width:-webkit-fill-available;background-color: darkgrey;color: white;border-color: #fcff5e !important;background-color: #b7b36e">
+            <div class="card-body">
+                <a href="https://www.practo.com/?utm_source=google&utm_medium=cpc&utm_campaign=brand-search-practo-consult&sem=true&gclid=CjwKCAjw2uf2BRBpEiwA31VZj0ZDQVsDp3vULne_ATWngDubt1lN_lcB_eS19vBYHnYfdRkv4ehMABoCSb0QAvD_BwE" target="_blank">
+                    <img src="~/Content/Images/telemed.jpg" style="width: -webkit-fill-available;height: 146px;" />
+                </a>
+                @*<h4 class="card-title">Sample Link</h4>*@
+                <br />
+                <h4 class="card-text" style="text-align: center;">Telemed</h4>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card border-primary mb-3" style="max-width: -webkit-fill-available;background-color: darkgrey;color: white;border-color: #fcff5e !important;background-color: #b7b36e">
+            <div class="card-body">
+                <a href="https://www.startupindia.gov.in/content/sih/en/women_entrepreneurs.html" target="_blank"><img src="~/Content/Images/womenentr1.png" style="width: -webkit-fill-available;height: 146px;" /></a>
+                @*<h4 class="card-title">Sample Link</h4>*@
+                <br />
+                <h4 class="card-text" style="text-align: center;">Women Help</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="col-lg-12">
+    <h3>
+        Students
+    </h3>
+</div>
+<div class="row">
+    @foreach (var item in Model.Students)
+    {
+        <div class="col-md-4">
+            <div class="card border-primary mb-3" style="max-width: 30rem;background-color: #4a6121;border-color: #86bc25 !important;color: white;min-height: 134px;">
+                <div class="card-body">
+                    <h4 class="card-title">@item.FirstName @item.LastName</h4>
+                    <p class="card-text">Email-ID: @item.Email</p>
+                    <p class="card-text">Date of Birth: @item.DateOfBirth.ToShortDateString()</p>
+                    <p class="card-text">Reports Count: @item.QuizResults.Count()</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<hr />
+<div class="col-lg-12">
+    <h3>
+        Reports
+    </h3>
+</div>
+<div class="row">
+    @foreach (var item in Model.Reports)
+    {
+        <div class="col-md-2">
+            <div class="card border-primary mb-3" style="max-width: 18rem;background-color: darkgrey;color: white;border-color: #316eff !important;background-color: #16546f;min-height: 134px;">
+                <div class="card-body">
+                    <h4 class="card-title">@item.Subject</h4>
+
+                    <p class="card-text">Quiz Count: @item.ReportCount</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<hr />
+@*<div class="col-lg-12">
+    <h3>
+        Usefull Links
+    </h3>
+    <hr />
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <div class="card border-primary mb-3" style="max-width: 18rem;background-color: darkgrey;color: white;border-color: #fcff5e !important;background-color: #b7b36e">
+            <div class="card-body">
+                <h4 class="card-title">Sample Link</h4>
+                <p class="card-text">Sample Description</p>
+            </div>
+        </div>
+    </div>
+</div>*@
+<script>
+    window.watsonAssistantChatOptions = {
+        integrationID: "d3a65210-7a1c-43f1-afc6-71a33804cf0f", // The ID of this integration.
+        region: "eu-gb", // The region your integration is hosted in.
+        serviceInstanceID: "5ad91973-9945-408b-9414-8da17b23cffe", // The ID of your service instance.
+        onLoad: function (instance) { instance.render(); }
+    };
+    setTimeout(function () {
+        const t = document.createElement('script');
+        t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/loadWatsonAssistantChat.js";
+        document.head.appendChild(t);
+    });
+</script>

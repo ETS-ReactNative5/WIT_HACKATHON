@@ -1,0 +1,64 @@
+﻿@model IEnumerable<EduCarePortal.Models.Question>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Questions</h2>
+<p>
+    <div class="column w-col w-col-8 text-right">
+        <a href="/Questions/Create?quizID=@ViewBag.ReturnQuizID" class="createentrybutton"><img src="~/Content/Images/create-icon.png" style="height: 30px; width: 30px; padding-right:5px" />Create New Question</a>
+    </div>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DifficultyLevel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Question1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Answer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Choices)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quizze.QuizName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marks)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DifficultyLevel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Question1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Answer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Choices)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quizze.QuizName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marks)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.QuiestionID }, new { @class = "btn btn-primary"})
+            @*@Html.ActionLink("Details", "Details", new { id=item.QuiestionID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.QuiestionID })*@
+        </td>
+    </tr>
+}
+
+</table>

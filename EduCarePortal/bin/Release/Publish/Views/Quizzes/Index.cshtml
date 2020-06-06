@@ -1,0 +1,87 @@
+﻿@model IEnumerable<EduCarePortal.Models.Quizze>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Quizes</h2>
+<hr />
+@if (Session["Role"].ToString() == "Teacher")
+{
+    <p>
+        <div class="column w-col w-col-8 text-right">
+            <a href="/Quizzes/Create" class="createentrybutton"><img src="~/Content/Images/create-icon.png" style="height: 30px; width: 30px; padding-right:5px" />Create New Quiz</a>
+        </div>
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.QuizName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuizDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject.SubjectName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuizName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuizDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject.SubjectName)
+            </td>
+            <td style="text-align:left; max-width: 200px;">
+                @if (Session["Role"].ToString() == "Teacher")
+                {
+                    <a href="#" class="createentrybutton" onclick="UploadQuestion('@item.QuizID')"><img src="~/Content/Images/upload-icon.png" style="height: 25px; width: 30px; padding-right:5px" />Upload Questions</a>
+                    <a href="#" class="createentrybutton" onclick="ViewQuestion('@item.QuizID')"><img src="~/Content/Images/viewdetail-icon.png" style="height: 25px; width: 30px; padding-right:5px" />View Questions</a>
+                }
+                @if (Session["Role"].ToString() == "Student")
+                {
+                    <a href="#" class="createentrybutton" onclick="TakeQuiz('@item.QuizID')"><img src="~/Content/Images/config-icon.png" style="height: 25px; width: 30px; padding-right:5px" />Take Quiz</a>
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="modal fade" id="myModal3">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Upload Quiz Questions</h3>
+                <a href="#" class="close" data-dismiss="modal">&times;</a>
+            </div>
+            <div class="modal-body" id="myModalBodyDiv3">
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var UploadQuestion = function (quizID) {
+        var url = "/Questions/UploadQuestion?quizID=" + quizID;
+        $("#myModalBodyDiv3").load(url, function () {
+            $("#myModal3").modal("show");
+        });
+    }
+    var ViewQuestion = function (quizID) {
+        var dataurl = "/Questions/Index?quizID=" + quizID;
+        window.location.href = dataurl;
+    }
+     var TakeQuiz = function (quizID) {
+        var dataurl = "/Quizzes/TakeQuiz?quizID=" + quizID;
+        window.location.href = dataurl;
+    }
+</script>

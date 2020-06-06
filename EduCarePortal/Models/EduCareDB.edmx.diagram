@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fc367a003ab447b48767563b0a3038c5" Name="Diagram1">
+        <EntityTypeShape EntityType="hackathondbModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hackathondbModel.AspNetRole" Width="1.5" PointX="8.75" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="hackathondbModel.AspNetUserClaim" Width="1.5" PointX="13.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="hackathondbModel.AspNetUserLogin" Width="1.5" PointX="13.25" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hackathondbModel.AspNetUser" Width="1.5" PointX="11" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="hackathondbModel.File" Width="1.5" PointX="5.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="hackathondbModel.Lesson" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="hackathondbModel.Parent" Width="1.5" PointX="3.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="hackathondbModel.Question" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="hackathondbModel.QuizResult" Width="1.5" PointX="8.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="hackathondbModel.Quizze" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="hackathondbModel.Student" Width="1.5" PointX="6" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="hackathondbModel.Subject" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="hackathondbModel.sysdiagram" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hackathondbModel.Teacher" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="hackathondbModel.Tutorial" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="hackathondbModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="hackathondbModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="hackathondbModel.FK_Files_Lessons" ManuallyRouted="false" />
+        <AssociationConnector Association="hackathondbModel.FK_Lessons_Subjects" ManuallyRouted="false" />
+        <AssociationConnector Association="hackathondbModel.FK_Students_Parents" ManuallyRouted="false" />
+        <AssociationConnector Association="hackathondbModel.FK_Questions_Quizzes" ManuallyRouted="false" />
+        <AssociationConnector Association="hackathondbModel.FK_QuizResult_Quizzes" ManuallyRouted="false" />
+        <AssociationConnector Association="hackathondbModel.FK_QuizResult_Students" ManuallyRouted="false" />
+        <AssociationConnector Association="hackathondbModel.FK_Quizzes_Subjects" ManuallyRouted="false" />
+        <AssociationConnector Association="hackathondbModel.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="hackathondbModel.FK_Subjects_Teachers" />
+        <EntityTypeShape EntityType="hackathondbModel.Admin" Width="1.5" PointX="10.375" PointY="6.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

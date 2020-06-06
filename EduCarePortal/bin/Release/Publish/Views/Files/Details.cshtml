@@ -1,0 +1,66 @@
+﻿@model EduCarePortal.Models.File
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>File</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FileType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContentDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContentDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContentURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContentURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UploadDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UploadDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lesson.LessonName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lesson.LessonName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FileID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<EduCarePortal.Models.Lesson>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tutorials</h2>
+<p>
+    <div class="column w-col w-col-8 text-right">
+        <a href="/Lessons/Create" class="createentrybutton"><img src="~/Content/Images/create-icon.png" style="height: 30px; width: 30px; padding-right:5px" />Create New Tutorial</a>
+    </div>
+</p>
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LessonName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IssueDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject.SubjectName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LessonName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IssueDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject.SubjectName)
+        </td>
+        <td>
+            @if (Session["Role"].ToString() == "Teacher")
+            {
+                <a href="/Files/Create?lessonID=@item.LessionID.ToString()" class="createentrybutton"><img src="~/Content/Images/upload-icon.png" style="height: 25px; width: 30px; padding-right:5px" />Upload Content</a>
+            }
+            @if (item.Files.Count() > 0)
+            {
+                <a href="/Lessons/Details?id=@item.LessionID" class="createentrybutton"><img src="~/Content/Images/viewdetail-icon.png" style="height: 25px; width: 30px; padding-right:5px" />View Content</a>
+            }
+        </td>
+    </tr>
+}
+</table>

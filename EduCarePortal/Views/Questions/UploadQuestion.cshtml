@@ -1,0 +1,65 @@
+﻿<div>
+    <label class="control-label sr-only1" style="font-size:18px">Select the quiz question file</label>
+    <br />
+    <br />
+    <div>
+        <input type="file" name="UploadFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" id="txtUploadFile" />
+    </div>
+    <br />
+    <div></div>
+</div>
+<script>
+    var _quizID = '@ViewBag.QuizID';
+    $(function () {
+    $('#txtUploadFile').on('change', function (e) {
+        var files = e.target.files;
+        if (files.length > 0) {
+            if (files.length < 2) {
+                if (window.FormData !== undefined) {
+                    var data = new FormData();
+                    for (var x = 0; x < files.length; x++) {
+                        data.append(files[x].name, files[x]);
+                    }
+                    $.ajax({
+                        type: "POST",
+                        url: '/Questions/UploadQuestionDetails?quizID=' + _quizID,
+                        contentType: false,
+                        processData: false,
+                        data: data,
+                        success: function (response) {
+                            if (response["Success"]) {
+                                $("#myModal3").modal("hide");
+                                var dataurl = "/Quizzes/Index";
+                                window.location.href = dataurl;
+                            }
+                            else {
+                                alert("Not able to read the uploaded file!");
+                            }
+                        },
+                        error: function (xhr, status, p3, p4) {
+                            var err = "Error " + " " + status + " " + p3 + " " + p4;
+                            if (xhr.responseText && xhr.responseText[0] == "{")
+                                err = JSON.parse(xhr.responseText).Message;
+                            console.log(err);
+                            alert("Not able to read the uploaded file!");
+                            $("#myModal3").modal("hide");
+                        }
+                    });
+                }
+                else {
+                    alert("Not able to read the uploaded file!");
+                    $("#myModal3").modal("hide");
+                }
+            }
+            else {
+                alert("Not able to read the uploaded file!");
+                $("#myModal3").modal("hide");
+            }
+        }
+        else {
+            alert("Not able to read the uploaded file!");
+            $("#myModal3").modal("hide"); 
+        }
+    });
+});
+</script>

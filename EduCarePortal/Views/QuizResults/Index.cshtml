@@ -1,0 +1,75 @@
+﻿@model IEnumerable<EduCarePortal.Models.QuizResult>
+
+@{
+    ViewBag.Title = "Quiz Results";
+}
+
+<h2>Quiz Results</h2>
+<hr />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Quizze.QuizName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScoreObtained)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Percentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AssessmentDate)
+        </th>
+
+        <th>
+            @Html.DisplayName("Student Name")
+        </th>
+        <th>
+            @Html.DisplayName("Student Email")
+        </th>
+        <th>
+            @Html.DisplayName("Parent Name")
+        </th>
+        <th>
+            @Html.DisplayName("Parent Email")
+        </th>
+
+    </tr>
+
+@foreach (var item in Model) 
+{
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Quizze.QuizName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ScoreObtained) / @Html.DisplayFor(modelItem => item.TotalMarks)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Percentage) %
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AssessmentDate)
+    </td>
+    <td>
+        @Html.DisplayFor(model => item.Student.FirstName) @Html.DisplayFor(model => item.Student.LastName)
+    </td>
+    <td>
+        @Html.DisplayFor(model => item.Student.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(model => item.Student.Parent.FirstName) @Html.DisplayFor(model => item.Student.Parent.LastName)
+    </td>
+    <td>
+        @Html.DisplayFor(model => item.Student.Parent.Email)
+    </td>
+    @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ResultID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ResultID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ResultID })
+        </td>*@
+</tr>
+}
+
+</table>

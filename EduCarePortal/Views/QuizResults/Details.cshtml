@@ -1,0 +1,50 @@
+﻿@model EduCarePortal.Models.QuizResult
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>QuizResult</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ScoreObtained)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScoreObtained)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssessmentDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssessmentDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quizze.QuizName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quizze.QuizName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.FirstName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ResultID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
